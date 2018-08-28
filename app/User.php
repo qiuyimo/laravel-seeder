@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Article;
 
 class User extends Authenticatable
 {
@@ -26,4 +27,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * 模型关联.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function hasManyArticles()
+    {
+        return $this->hasMany(Article::class, 'user_id', 'id');
+    }
 }
