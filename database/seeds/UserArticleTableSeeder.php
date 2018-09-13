@@ -13,12 +13,12 @@ class UserArticleTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(User::class, 3)
-            ->create()
-            ->each(function (User $user) {
-                collect(range(1, 5))->each(function () use ($user) {
-                    $user->hasManyArticles()->save(factory(Article::class)->make());
-                });
+        /** @var \Illuminate\Support\Collection $users */
+        $users = factory(User::class, 3)->create();
+        $users->each(function (User $user) {
+            collect(range(1, 5))->each(function () use ($user) {
+                $user->hasManyArticles()->save(factory(Article::class)->make());
             });
+        });
     }
 }

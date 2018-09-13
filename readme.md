@@ -316,5 +316,5 @@ class UserArticleTableSeeder extends Seeder
 ![image-20180828145924666](assets/image-20180828145924666.png)
 
 
-
+另一个例子. https://laravel-china.org/topics/15077/what-is-the-n1-problem-and-how-to-solve-the-n1-problem-in-laravel
 
