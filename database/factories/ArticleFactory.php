@@ -15,9 +15,24 @@ use Faker\Generator as Faker;
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Article::class, function (Faker $faker) {
+    $arr = [
+        $faker->phoneNumber,
+        $faker->colorName,
+        $faker->address,
+        $faker->company,
+        $faker->internetExplorer,
+
+        // 下面这 4 个不能使用, 会报错.
+        // $faker->DataTime,
+        // $faker->Internet,
+        // $faker->Person,
+        // $faker->Payment,
+    ];
+    $content = implode(' ', $arr);
+
     return [
         'title' => $faker->sentence,
-        'content' => $faker->paragraph,
+        'content' => $content,
         'status' => $faker->boolean(),
     ];
 });
